@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Alumni - Universitas Kuningan</title>
+    <link rel="icon" type="image/png" href="gambar/logo_uniku.png">
+    <link rel="stylesheet" href="stylesheet_Tugas_04.css">
+</head>
+<body>
+    <!-- Bagian kepala halaman -->
+    <header class="header">
+        <div class="header-isi">
+            <img class="logo" src="gambar/logo_uniku.png" alt="Logo Universitas Kuningan">
+            <div class="header-teks">
+                <h1>Portal Alumni</h1>
+                <p>Universitas Kuningan</p>
+            </div>
+            <nav class="navigasi">
+                <a href="#beranda">Beranda</a>
+                <a href="#direktori">Direktori Alumni</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Bagian sambutan dan statistik -->
+    <section class="hero" id="beranda">
+        <div class="hero-isi">
+            <h2>Jejak Lulusan Universitas Kuningan</h2>
+            <p>Kenali 100 alumni dari berbagai fakultas yang kini berkarya di dunia kerja, pendidikan, dan masyarakat.</p>
+            <div class="statistik">
+                <div class="stat">
+                    <strong id="stat-alumni">0</strong>
+                    <span>Alumni</span>
+                </div>
+                <div class="stat">
+                    <strong id="stat-fakultas">0</strong>
+                    <span>Fakultas</span>
+                </div>
+                <div class="stat">
+                    <strong id="stat-prodi">0</strong>
+                    <span>Program Studi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="konten" id="direktori">
+        <h2 class="judul-bagian">Direktori Alumni</h2>
+
+        <!-- Pencarian dan filter fakultas -->
+        <section class="panel-cari">
+            <label for="kolom-cari">Cari alumni berdasarkan nama atau jurusan</label>
+            <div class="baris-cari">
+                <input type="text" id="kolom-cari" placeholder="Contoh: Rina atau Sistem Informasi" autocomplete="off">
+                <button type="button" id="tombol-reset">Reset</button>
+            </div>
+            <div class="filter" id="filter-fakultas" role="group" aria-label="Filter berdasarkan fakultas"></div>
+            <p class="info-hasil" id="info-hasil" aria-live="polite"></p>
+        </section>
+
+        <!-- Panel informasi yang berubah saat kartu di-hover -->
+        <section class="info-profil" id="info-profil">
+            Arahkan kursor ke salah satu kartu alumni untuk melihat informasi singkatnya.
+        </section>
+
+        <!-- Daftar kartu alumni dibuat oleh JavaScript -->
+        <section class="daftar-alumni" id="daftar-alumni"></section>
+
+        <nav class="paginasi" id="paginasi" aria-label="Navigasi halaman"></nav>
+
+        <p class="pesan-kosong" id="pesan-kosong" hidden>Alumni tidak ditemukan. Coba kata kunci atau fakultas lain.</p>
+    </main>
+
+    <footer class="footer">
+        <img class="logo-kecil" src="gambar/logo_uniku.png" alt="">
+        <p>&copy; 2026 Dhika Muhamad Fhikri - Praktikum Desain Web, Fakultas Ilmu Komputer, Universitas Kuningan</p>
+        <p class="catatan">Data alumni pada halaman ini bersifat fiktif dan dibuat untuk keperluan praktikum.</p>
+    </footer>
+
+    <script src="data_alumni.js"></script>
+    <script src="script_Tugas_04.js"></script>
+</body>
+</html>

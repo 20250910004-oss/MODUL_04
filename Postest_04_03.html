@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postest 3 - Global Scope dan Local Scope</title>
+</head>
+<body>
+    <script>
+       
+        let pesanGlobal = "Saya variabel global";
+
+        function tampilkanPesan() {
+            
+            let pesanLokal = "Saya variabel lokal";
+            console.log(pesanGlobal);
+            console.log(pesanLokal);
+        }
+
+        tampilkanPesan();
+
+        
+        console.log("Dari luar fungsi: " + pesanGlobal);
+
+        
+        try {
+            console.log(pesanLokal);
+        } catch (e) {
+            console.log("Error: " + e.message);
+        }
+    </script>
+</body>
+</html>
