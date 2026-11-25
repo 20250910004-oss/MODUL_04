@@ -1,4 +1,4 @@
-// Data alumni (array dataAlumni) berada pada file data_alumni.js
+
 const daftarFakultas = [
     { kode: "fikom", nama: "Fakultas Ilmu Komputer" },
     { kode: "feb", nama: "Fakultas Ekonomi dan Bisnis" },
@@ -10,7 +10,7 @@ const daftarFakultas = [
 
 const jumlahPerHalaman = 12;
 
-// ===== Mengambil elemen dari halaman =====
+
 const kolomCari = document.getElementById("kolom-cari");
 const tombolReset = document.getElementById("tombol-reset");
 const wadahFilter = document.getElementById("filter-fakultas");
@@ -22,7 +22,7 @@ const pesanKosong = document.getElementById("pesan-kosong");
 
 const teksAwalInfo = infoProfil.textContent.trim();
 
-// ===== Status halaman =====
+
 let fakultasAktif = "semua";
 let halamanAktif = 1;
 let hasilFilter = dataAlumni;
@@ -35,7 +35,7 @@ function inisial(nama) {
     return nama.split(" ").map(function (kata) { return kata[0]; }).slice(0, 2).join("").toUpperCase();
 }
 
-// ===== Statistik pada bagian hero =====
+
 function tampilkanStatistik() {
     const jumlahProdi = new Set(dataAlumni.map(function (a) { return a.jurusan; })).size;
     document.getElementById("stat-alumni").textContent = dataAlumni.length;
@@ -43,7 +43,7 @@ function tampilkanStatistik() {
     document.getElementById("stat-prodi").textContent = jumlahProdi;
 }
 
-// ===== Tombol filter fakultas =====
+
 function buatFilter() {
     const semua = [{ kode: "semua", nama: "Semua Fakultas" }].concat(daftarFakultas);
     semua.forEach(function (f) {
@@ -66,7 +66,7 @@ function buatFilter() {
     });
 }
 
-// ===== Membuat kartu alumni =====
+
 function buatKartu(alumni) {
     const kartu = document.createElement("article");
     kartu.className = "kartu-alumni fak-" + alumni.fakultas;
@@ -82,7 +82,7 @@ function buatKartu(alumni) {
     return kartu;
 }
 
-// ===== Interaktivitas hover pada profil alumni =====
+
 function tampilkanInfo(kartu) {
     const nama = kartu.querySelector(".nama").textContent;
     infoProfil.textContent = nama + " - " + kartu.dataset.info;
@@ -94,7 +94,7 @@ function resetInfo() {
     infoProfil.classList.remove("aktif");
 }
 
-// Satu pendengar event pada wadah daftar berlaku untuk semua kartu
+
 daftarAlumni.addEventListener("mouseover", function (e) {
     const kartu = e.target.closest(".kartu-alumni");
     if (kartu) {
@@ -118,7 +118,7 @@ daftarAlumni.addEventListener("focusin", function (e) {
 
 daftarAlumni.addEventListener("focusout", resetInfo);
 
-// ===== Menampilkan satu halaman daftar alumni =====
+
 function tampilkanHalaman() {
     const total = hasilFilter.length;
     const awal = (halamanAktif - 1) * jumlahPerHalaman;
@@ -147,7 +147,7 @@ function tampilkanHalaman() {
     buatPaginasi();
 }
 
-// ===== Navigasi halaman =====
+
 function buatTombolHalaman(teks, nomor, nonaktif, aktif) {
     const tombol = document.createElement("button");
     tombol.type = "button";
@@ -176,7 +176,7 @@ function buatPaginasi() {
     paginasi.appendChild(buatTombolHalaman("Berikutnya", halamanAktif + 1, halamanAktif === jumlahHalaman, false));
 }
 
-// ===== Pencarian alumni (nama atau jurusan) dan filter fakultas =====
+
 function cariAlumni() {
     const kataKunci = kolomCari.value.trim().toLowerCase();
 
@@ -209,7 +209,7 @@ kolomCari.addEventListener("keydown", function (e) {
 });
 tombolReset.addEventListener("click", resetPencarian);
 
-// ===== Menjalankan halaman =====
+
 tampilkanStatistik();
 buatFilter();
 cariAlumni();
